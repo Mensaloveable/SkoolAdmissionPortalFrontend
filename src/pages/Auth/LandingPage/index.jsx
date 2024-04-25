@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
-import { Logo } from "../../components/UI/logo";
+import styles from "../styles.module.css";
+import { Logo } from "../../../components/UI/logo";
 import { Button } from "react-bootstrap";
-import { AuthFooter } from "../../components/UI/authFooter";
+import { AuthFooter } from "../../../components/UI/authFooter";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const LandingPage = () => {
