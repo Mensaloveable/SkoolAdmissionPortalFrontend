@@ -1,5 +1,5 @@
 import styles from "../styles.module.css";
-import { Logo } from "../../../components/UI/logo";
+import { LightLogo } from "../../../components/UI/light_logo";
 import { Button } from "react-bootstrap";
 import { AuthFooter } from "../../../components/UI/authFooter";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,7 +8,7 @@ export const LandingPage = () => {
   return (
     <div className={`${styles.background} ${styles.container}`}>
       <nav className={styles.nav}>
-        <Logo />
+        <LightLogo />
         <ul>
           <li>Study</li>
           <li>Life on Campus</li>
