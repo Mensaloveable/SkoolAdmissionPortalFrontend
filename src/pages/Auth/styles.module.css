@@ -99,7 +99,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 20px;
 }
 
@@ -132,6 +132,7 @@ form * {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 5px;
+  border-color: #d0d5dd;
 }
 
 .forgotPassword {
