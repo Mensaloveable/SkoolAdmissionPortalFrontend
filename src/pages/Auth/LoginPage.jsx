@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { DarkLogo } from "../../components/UI/dark_logo";
 import { AuthFooter } from "../../components/UI/authFooter";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { TextInput } from "../../components/UI/text_input";
 
 export const LoginPage = () => {
   return (
@@ -15,15 +16,15 @@ export const LoginPage = () => {
             Login to the Applicant Portal
           </h2>
           <div style={{ width: "480px" }} className={styles.innerContent}>
-            <div className={styles.formGroup}>
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="text"
-                placeholder="Enter your email"
-                id="email"
-                required
-              />
-            </div>
+            <TextInput
+              label="Email Address"
+              name="email"
+              type="email"
+              key="email"
+              placeholder="Enter your email"
+              required
+              handleInputChange={(e) => console.log(e.target.value)}
+            />
             <div className={styles.formGroup}>
               <label htmlFor="password">Password</label>
               <input
@@ -43,7 +44,10 @@ export const LoginPage = () => {
             <p className={`mt-3 text-secondary`}>
               No account?{" "}
               <span>
-                <a className={`text-success text-decoration-none`} href="#">
+                <a
+                  className={`text-success text-decoration-none fw-semibold`}
+                  href="#"
+                >
                   Create One
                 </a>
               </span>

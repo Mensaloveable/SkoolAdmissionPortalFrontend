@@ -17,3 +17,34 @@
   bottom: 0;
   width: 100%;
 }
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  text-align: start;
+}
+
+.formGroup label {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.formGroup input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.forgotPassword {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: end;
+}
+
+.text-\[#667085\] {
+  color: #667085; /* Adjust as needed */
+}
