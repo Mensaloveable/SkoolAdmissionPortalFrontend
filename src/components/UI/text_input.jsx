@@ -59,34 +59,10 @@ export const TextInput = ({
   );
 };
 
-// TextInput.propTypes = {
-//   footnote: PropTypes.string,
-//   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-//   placeholder: PropTypes.string,
-//   type: PropTypes.oneOf([
-//     "text",
-//     "email",
-//     "number",
-//     "tel",
-//     "url",
-//     "date",
-//     "password",
-//   ]),
-//   name: PropTypes.string.isRequired,
-//   value: PropTypes.string.isRequired,
-//   autoFocus: PropTypes.bool,
-//   handleInputChange: PropTypes.func,
-//   readOnly: PropTypes.bool,
-//   hint: PropTypes.string,
-//   required: PropTypes.bool,
-// };
-
-// PropTypes validation
 TextInput.propTypes = {
   footnote: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   placeholder: PropTypes.string,
-  size: PropTypes.oneOf(["small", "regular"]),
   type: PropTypes.oneOf([
     "text",
     "email",
@@ -97,9 +73,33 @@ TextInput.propTypes = {
     "password",
   ]),
   name: PropTypes.string.isRequired,
-  value: PropTypes.string, // Remove isRequired
+  value: PropTypes.string.isRequired,
   autoFocus: PropTypes.bool,
   handleInputChange: PropTypes.func,
   readOnly: PropTypes.bool,
   hint: PropTypes.string,
+  required: PropTypes.bool,
 };
+
+// PropTypes validation
+// TextInput.propTypes = {
+//   footnote: PropTypes.string,
+//   label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+//   placeholder: PropTypes.string,
+//   size: PropTypes.oneOf(["small", "regular"]),
+//   type: PropTypes.oneOf([
+//     "text",
+//     "email",
+//     "number",
+//     "tel",
+//     "url",
+//     "date",
+//     "password",
+//   ]),
+//   name: PropTypes.string.isRequired,
+//   value: PropTypes.string, // Remove isRequired
+//   autoFocus: PropTypes.bool,
+//   handleInputChange: PropTypes.func,
+//   readOnly: PropTypes.bool,
+//   hint: PropTypes.string,
+// };

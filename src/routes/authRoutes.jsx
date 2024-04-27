@@ -6,7 +6,6 @@ import { PasswordRequest } from "../pages/Auth/PasswordRequest";
 import { SignupPage } from "../pages/Auth/SignupPage";
 
 export const AuthRoutes = [
-  <h1 key={1}>Hello</h1>,
   {
     errorElement: <ErrorPage />,
     children: [
