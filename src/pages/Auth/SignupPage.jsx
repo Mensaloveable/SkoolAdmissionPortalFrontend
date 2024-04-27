@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { TextInput } from "../../components/UI/text_input";
 import { useMutation } from "react-query";
 import { postSignup } from "../../mutations/authMutations";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 export const SignupPage = () => {
@@ -20,7 +20,6 @@ export const SignupPage = () => {
     country: "",
   });
   const updateData = (e) => {
-    console.log(e.target.name, e.target.value);
     setSignupDate({ ...signupData, [e.target.name]: e.target.value });
   };
   const signup = useMutation(
@@ -30,11 +29,12 @@ export const SignupPage = () => {
         lastName: signupData.lastName,
         email: signupData.email,
         phoneNumber: signupData.phoneNumber,
-        country: signupData.country,
+        countryOfPermanentResidence: signupData.country,
       }),
     {
       onSuccess(data) {
-        navigate("/verify-confirm");
+        localStorage.setItem("user", JSON.stringify(data.data));
+        navigate("/create-password");
         toast.success(data.message);
       },
       onError(error) {
@@ -45,16 +45,17 @@ export const SignupPage = () => {
   );
 
   const handleSubmit = (e) => {
-    console.log(e);
     e.preventDefault();
     signup.mutate();
   };
   return (
     <div className={`${styles.background} ${styles.container}`}>
       <div className={`mt-1 ${styles.content}`}>
-        <h1 className={styles.inknut}>Register to the Applicant Portal</h1>
+        <h1 style={{ lineHeight: "1.3" }} className={styles.inknut}>
+          Register to the Applicant Portal
+        </h1>
         <form
-          style={{ marginTop: "5px" }}
+          style={{ marginTop: "3px" }}
           className={styles.form}
           onSubmit={handleSubmit}
         >
@@ -111,10 +112,13 @@ export const SignupPage = () => {
             />
             <Button
               className={`btn btn-success btn-lg px-5 mt-3 w-100`}
-              // disabled={
-              //   signupData.firstName.length < 1 ||
-              //   signupData.lastName.length < 1
-              // }
+              disabled={
+                signupData.firstName.length < 1 ||
+                signupData.lastName.length < 1 ||
+                signupData.email.length < 1 ||
+                signupData.phoneNumber.length < 10 ||
+                signupData.country.length < 1
+              }
               type="submit"
             >
               Signup
@@ -123,12 +127,12 @@ export const SignupPage = () => {
             <p className={`mt-3 text-secondary`}>
               Already have an account?{" "}
               <span>
-                <a
+                <Link
                   className={`text-success text-decoration-none fw-semibold`}
-                  href="#"
+                  to="/login"
                 >
                   Login here
-                </a>
+                </Link>
               </span>
             </p>
           </div>

@@ -36,7 +36,7 @@ export const PasswordRequest = () => {
               <span>
                 <a
                   className={`text-success text-decoration-none fw-semibold`}
-                  href="#"
+                  href="/login"
                 >
                   Login
                 </a>

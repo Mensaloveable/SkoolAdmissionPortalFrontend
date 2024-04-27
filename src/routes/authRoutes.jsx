@@ -26,7 +26,7 @@ export const AuthRoutes = [
         element: <CreatePassword />,
       },
       {
-        path: "password-reset",
+        path: "forgot-password",
         element: <PasswordRequest />,
       },
     ],

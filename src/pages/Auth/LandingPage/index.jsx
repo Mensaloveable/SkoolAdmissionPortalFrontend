@@ -3,6 +3,7 @@ import { LightLogo } from "../../../components/UI/light_logo";
 import { Button } from "react-bootstrap";
 import { AuthFooter } from "../../../components/UI/authFooter";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 export const LandingPage = () => {
   return (
@@ -26,7 +27,9 @@ export const LandingPage = () => {
             </p>
           </div>
           <Button className={`btn btn-success btn-lg px-5 mt-3`}>
-            Apply Now!
+            <Link to="/sign-up" className="text-white text-decoration-none">
+              Apply Now!
+            </Link>
           </Button>
         </div>
       </div>

@@ -14,7 +14,7 @@ export const postLogin = async (data) => {
   try {
     const response = await axios(config);
     console.log(response.data);
-    return response.data.data;
+    return response.data;
   } catch (error) {
     if (!error.response) {
       throw error;
@@ -24,9 +24,9 @@ export const postLogin = async (data) => {
 };
 
 export const postSignup = async (data) => {
-  const congif = {
+  const config = {
     url: API.signup,
-    method: "post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -34,9 +34,29 @@ export const postSignup = async (data) => {
     data,
   };
   try {
-    const response = await axios(congif);
-    console.log(response.data);
-    return response.data.data;
+    const response = await axios(config);
+    return response.data;
+  } catch (error) {
+    if (!error.response) {
+      throw error;
+    }
+    throw error.response.data;
+  }
+};
+
+export const patchCreatePassword = async (data) => {
+  const config = {
+    url: API.createPassword,
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    data,
+  };
+  try {
+    const response = await axios(config);
+    return response.data;
   } catch (error) {
     if (!error.response) {
       throw error;
