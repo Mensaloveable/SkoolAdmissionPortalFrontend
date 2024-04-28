@@ -64,3 +64,24 @@ export const patchCreatePassword = async (data) => {
     throw error.response.data;
   }
 };
+
+export const patchForgotPassword = async (data) => {
+  const config = {
+    url: API.forgotPassword,
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    data,
+  };
+  try {
+    const response = await axios(config);
+    return response.data;
+  } catch (error) {
+    if (!error.response) {
+      throw error;
+    }
+    throw error.response.data;
+  }
+};

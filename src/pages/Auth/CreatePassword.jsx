@@ -4,18 +4,30 @@ import { DarkLogo } from "../../components/UI/dark_logo";
 import { AuthFooter } from "../../components/UI/authFooter";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TextInput } from "../../components/UI/text_input";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { patchCreatePassword } from "../../mutations/authMutations";
 import toast from "react-hot-toast";
 import { useMutation } from "react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const CreatePassword = () => {
+  const { token } = useParams();
   const navigate = useNavigate();
-  const user = localStorage.getItem("user");
-  const { email } = JSON.parse(user);
+  const [user, setUser] = useState(null);
+
+  const userData = JSON.parse(localStorage.getItem("user"));
+  useEffect(() => {
+    if (!userData && !token) {
+      navigate("/forgot-password");
+    } else {
+      setUser(userData);
+      console.log(userData?.email);
+    }
+  }, [navigate, token, userData]);
+
   const [passwordData, setPasswordData] = useState({
-    email: email,
+    email: userData?.email,
+    passwordResetToken: token,
     password: "",
     confirmPassword: "",
   });
@@ -29,6 +41,7 @@ export const CreatePassword = () => {
       patchCreatePassword({
         email: passwordData.email,
         password: passwordData.password,
+        passwordResetToken: passwordData.passwordResetToken,
       }),
     {
       onSuccess(data) {
@@ -51,6 +64,8 @@ export const CreatePassword = () => {
     }
     createPassword.mutate();
   };
+
+  if (!user && !token) return null;
 
   return (
     <div className={`${styles.background} ${styles.container}`}>
