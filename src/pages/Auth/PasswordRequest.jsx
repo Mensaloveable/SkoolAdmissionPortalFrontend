@@ -61,7 +61,11 @@ export const PasswordRequest = () => {
               required
               handleInputChange={updateData}
             />
-            <Button className={`btn btn-success btn-lg px-5 mt-3 w-100`}>
+            <Button
+              className={`btn btn-success btn-lg px-5 mt-3 w-100`}
+              disabled={emailData.email === ""}
+              type="submit"
+            >
               Send reset instructions
             </Button>
 

@@ -67,7 +67,7 @@ export const patchCreatePassword = async (data) => {
 
 export const patchForgotPassword = async (data) => {
   const config = {
-    url: API.forgotPassword,
+    url: API.passwordReset,
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -75,8 +75,10 @@ export const patchForgotPassword = async (data) => {
     },
     data,
   };
+  console.log(config);
   try {
     const response = await axios(config);
+    console.log(response.data);
     return response.data;
   } catch (error) {
     if (!error.response) {
